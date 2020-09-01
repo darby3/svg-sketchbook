@@ -1,0 +1,28 @@
+#random-1 {
+  padding: 1rem;
+
+  svg {
+    border: 1px solid teal;
+
+    rect {
+      fill: teal;
+      fill-opacity: 0.5;
+    }
+
+    text {
+      font-family: "Helvetica Neue", sans-serif;
+      font-size: 100px;
+      font-weight: bold;
+      fill: red;
+      text-anchor: middle;
+
+      &.semi-opaque {
+        fill-opacity: 0.75;
+      }
+
+      &.plain {
+        font-weight: normal;
+      }
+    }
+  }
+}

@@ -1,3 +1,30 @@
-h1 {
-  color: #4F80CB;
+#random-1 {
+  padding: 1rem;
 }
+
+#random-1 svg {
+  border: 1px solid teal;
+}
+
+#random-1 svg rect {
+  fill: teal;
+  fill-opacity: 0.5;
+}
+
+#random-1 svg text {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 100px;
+  font-weight: bold;
+  fill: red;
+  text-anchor: middle;
+}
+
+#random-1 svg text.semi-opaque {
+  fill-opacity: 0.75;
+}
+
+#random-1 svg text.plain {
+  font-weight: normal;
+}
+
+/*# sourceMappingURL=global.css.map */
