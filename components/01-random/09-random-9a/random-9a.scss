@@ -1,0 +1,38 @@
+#random-9a {
+  height: 100vh;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: normal;
+
+  svg {
+    border: 1px solid teal;
+    width: calc(100vw - 2px);
+    height: auto;
+    max-height: calc(100vh - 2px);
+    display: block;
+    overflow: hidden;
+
+    rect {
+      fill: teal;
+      fill-opacity: 0.5;
+    }
+
+    text {
+      font-family: "Helvetica Neue", sans-serif;
+      font-size: 100px;
+      font-weight: bold;
+      fill: red;
+      text-anchor: middle;
+
+      &.semi-opaque {
+        fill-opacity: 0.75;
+      }
+
+      &.plain {
+        font-weight: normal;
+      }
+    }
+  }
+}
