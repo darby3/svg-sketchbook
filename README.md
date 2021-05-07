@@ -4,7 +4,7 @@ Just a project to help quick start development using [Fractal](https://fractal.b
 
 ## Getting started
 
-* Edit fractal.js to set a project title.
+* Edit fractal.config.js to set a project title.
 * npm install
 * npm run dev
 
