@@ -1,0 +1,49 @@
+#bold_turquoise_bear-4 {
+  padding: 1rem;
+
+  svg {
+    border: 1px solid teal;
+
+    .bg-rect {
+      fill: coral;
+    }
+
+    // So the transform origin is the center of the clip path as it's absolutely
+    // placed by the svg code...
+
+    .clip-1-rect {
+      transition: transform 2s ease;
+      transform: scale(0.95, 0.05);
+      transform-origin: 50px 50px;
+    }
+
+    .clip-2-rect {
+      transition: transform 1s ease;
+      transform-origin: 150px 50px;
+    }
+
+    .clip-3-rect {
+      transition: transform 1s ease;
+      transform: scale(0.5, 0.5);
+      transform-origin: 250px 50px;
+    }
+  }
+
+  // And we can transform from one scale to another easily enough, around the
+  // transform origin we set above...
+  &.active {
+    svg {
+      .clip-1-rect {
+        transform: scale(0.05, 0.95);
+      }
+
+      .clip-2-rect {
+        transform: scale(0.15, 0.75);
+      }
+
+      .clip-3-rect {
+        transform: none;
+      }
+    }
+  }
+}
