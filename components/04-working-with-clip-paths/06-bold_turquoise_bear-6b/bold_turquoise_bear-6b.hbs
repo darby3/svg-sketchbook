@@ -1,0 +1,24 @@
+<section id="bold_turquoise_bear-6b">
+    {{!-- Basiucally, the y coord for text sets the baseline y, and we need to account for that in our clip paths. --}}
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100">
+        <defs>
+            <clipPath id="clip-1">
+                <rect class="clip-1-rect" x="8" y="8" width="114" height="49"/>
+            </clipPath>
+
+            <clipPath id="clip-2">
+                <rect class="clip-2-rect" x="10" y="10" width="110" height="45"/>
+            </clipPath>
+        </defs>
+
+        <rect clip-path="url(#clip-1)" class="basic-rect-1" x="0" y="0" width="300" height="100"></rect>
+
+        <text clip-path="url(#clip-2)" class="basic-text-1">
+            <tspan x="10" y="20">This is my block of text.</tspan>
+            <tspan x="10" dy="15">This is my second line.</tspan>
+            <tspan x="10" dy="15">This is my third line.</tspan>
+        </text>
+    </svg>
+</section>
+
+<script src="{{ path '/js/components/bold_turquoise_bear-6b.js' }}"></script>

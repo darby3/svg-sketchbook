@@ -1,0 +1,46 @@
+#bold_turquoise_bear-6b {
+  padding: 1rem;
+
+  svg {
+    font-size: 100%;
+    border: 1px solid teal;
+    background: black;
+  }
+
+  .basic-text-1 {
+    font-size: 10px;
+    font-family: "Helvetica Neue", sans-serif;
+    fill: white;
+  }
+
+  .basic-rect-1 {
+    fill: brown;
+  }
+
+  // We set the transform origin of our clipping rectangles to the center points,
+  // according to how they are set in the html code...the calc's below are for
+  // demo purposes and I'm sure there's a better way to handle this, possibly
+  // via setting origins via script or something.
+
+  .clip-1-rect {
+    transition: transform 2s ease;
+    transform: scale(0, 0);
+    transform-origin: calc(8px + 114px / 2) calc(8px + 49px / 2);
+  }
+
+  .clip-2-rect {
+    transition: transform 2s ease 2s;
+    transform: scale(1, 1);
+    transform-origin: calc(10px + 110px / 2) calc(10px + 45px / 2);
+  }
+
+  &.active {
+    .clip-1-rect {
+      transform: scale(1, 1);
+    }
+
+    .clip-2-rect {
+      transform: scale(0, 0);
+    }
+  }
+}
