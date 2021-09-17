@@ -1,0 +1,19 @@
+#random-overlapping-5 {
+  height: 100vh;
+
+  //display: flex;
+  //flex-flow: row nowrap;
+  //align-items: center;
+  //justify-content: normal;
+
+  svg {
+    --svgWidth: 100px;
+    --svgHeight: 100px;
+
+    border: 0;
+    width: var(--svgWidth);
+    height: var(--svgHeight);
+    display: block;
+    overflow: hidden;
+  }
+}
