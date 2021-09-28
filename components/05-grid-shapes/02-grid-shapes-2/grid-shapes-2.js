@@ -86,25 +86,13 @@
     // draw some test shapes
 
     const coolerGrid = new gridAttrs(100, 100).createXCoords().createYCoords().centerIt();
-
-    for (let y = 0; y < coolerGrid.rows; y++) {
-      for (let x = 0; x < coolerGrid.cols; x++) {
-        drawRect(coolerGrid, x, y, 0, 0, 150);
-      }
-    }
-
     const coolestGrid = new gridAttrs(100, 100).createXCoords().createYCoords().centerIt();
+    const coolGrid = new gridAttrs(100, 100).createXCoords().createYCoords().centerIt();
 
     for (let y = 0; y < coolestGrid.rows; y++) {
       for (let x = 0; x < coolestGrid.cols; x++) {
+        drawRect(coolerGrid, x, y, 0, 0, 150);
         drawRect(coolestGrid, x, y, -50, -50, 75)
-      }
-    }
-
-    const coolGrid = new gridAttrs(100, 100).createXCoords().createYCoords().centerIt();
-
-    for (let y = 0; y < coolGrid.rows; y++) {
-      for (let x = 0; x < coolGrid.cols; x++) {
         drawRect(coolGrid, x, y, -25, -25, 225)
       }
     }

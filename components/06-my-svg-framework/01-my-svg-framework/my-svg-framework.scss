@@ -1,0 +1,23 @@
+#my-svg-framework {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #000;
+
+  // Placeholder values; set in JS
+  --svgWidth: 100px;
+  --svgHeight: 100px;
+
+  svg {
+    border: 1px solid #fff;
+    width: var(--svgWidth);
+    height: var(--svgHeight);
+    display: block;
+    overflow: hidden;
+  }
+}
