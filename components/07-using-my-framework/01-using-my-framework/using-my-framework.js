@@ -2,54 +2,59 @@
   document.addEventListener('DOMContentLoaded', function () {
     console.log("using-my-framework active");
 
-    const _SB = SvgSB();
+    // Create an SVG and append it to a selected container.
 
     const container = document.querySelector('#using-my-framework');
 
-    const targetResolution = {
-      width: 1500,
-      height: 1500
-    };
-
-    const svgAttrs = {
-      width: targetResolution.width / 2,
-      height: targetResolution.height / 2
+    const svgConfig = {
+      container: container,
+      targetResolution: {
+        width: 1500,
+        height: 1500
+      },
+      targetResolutionMultiplier: 0.5
     }
 
-    const svgOutput = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svgOutput.setAttributeNS(null, "viewBox", `0 0 ${svgAttrs.width} ${svgAttrs.height}`);
-    svgOutput.setAttributeNS(null, "preserveAspectRatio", "xMidYMid meet");
+    const _SB = SvgSB(svgConfig);
 
-    container.appendChild(svgOutput);
+    // Basic dumb rect shape, this should probably go away. Or maybe it has
+    // utility as a quickdraw function, when we don't need a full object.
 
-    container.style.setProperty("--svgWidth", `${svgAttrs.width}px`);
-    container.style.setProperty("--svgHeight", `${svgAttrs.height}px`);
+    _SB.svg.appendChild(_SB.drawRect(25, 25, 100));
+    _SB.svg.appendChild(_SB.drawRect(200, 50, 200));
 
-    // basic dumb rect shape
-
-    svgOutput.appendChild(_SB.drawRect(25, 25, 100));
-    svgOutput.appendChild(_SB.drawRect(200, 50, 200));
-
-    // fancy object rect shape
+    // Create object-based rect shapes.
 
     const myRect = SvgSB.rect({
       x: 400,
       y: 400,
-      svg: svgOutput
+      svg: _SB.svg
     });
-
-    myRect.draw().announce();
 
     const myOtherRect = SvgSB.rect({
       wv: 25,
-      svg: svgOutput
+      svg: _SB.svg
     });
 
+    myRect.announce().draw();
     myOtherRect.draw().announce();
 
-    // dumb animation to test my update function
+    // Make some rects and draw them all
 
-    let start, previousTimeStamp;
+    for (let i = 0; i < 5; i++) {
+      const x = _SB.getRandomInt(0, _SB.svgAttrs.width);
+      const y = _SB.getRandomInt(0, _SB.svgAttrs.height);
+
+      _SB.makeRect(x, y, 255);
+    }
+
+    _SB.rects.forEach((rect) => {
+      rect.draw().announce();
+    })
+
+    // Very dumb animation to test my update function.
+
+    let start;
 
     function step(timestamp) {
       if (start === undefined) {
@@ -60,12 +65,7 @@
 
       if (elapsed > 2000) {
         start = timestamp;
-
-        if (myRect.x === 300) {
-          myRect.update(400, 400);
-        } else {
-          myRect.update(300, 300);
-        }
+        (myRect.x === 300) ? myRect.update(400, 400) : myRect.update(300, 300);
       }
 
       window.requestAnimationFrame(step);
