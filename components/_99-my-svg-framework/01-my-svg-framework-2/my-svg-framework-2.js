@@ -226,9 +226,26 @@
       return this;
     },
 
-    update: function (x, y) {
+    update: function (coords) {
+      const {x1, y1, x2, y2} = coords;
 
-    },
+      if (x1 !== undefined && y1 !== undefined) {
+        this.x1 = x1;
+        this.y1 = y1;
+
+        this.obj.setAttribute('x1', this.x1);
+        this.obj.setAttribute('y1', this.y1);
+      }
+
+      if (x2 !== undefined && y2 !== undefined) {
+        this.x2 = x2;
+        this.y2 = y2;
+        this.obj.setAttribute('x2', this.x2);
+        this.obj.setAttribute('y2', this.y2);
+      }
+
+      return this;
+    }
   }
 
   Line.init.prototype = Line.prototype;

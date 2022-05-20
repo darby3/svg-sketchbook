@@ -8,14 +8,14 @@
 
     const svgConfig = {
       container: container,
-      debug: true
+      debug: false
     }
 
     const _SB = SvgSB(svgConfig);
 
     // Make some rects and draw them all
 
-    console.groupCollapsed();
+    console.groupCollapsed("rects");
     for (let i = 0; i < 25; i++) {
       const coords = _SB.getRandomXY();
 
@@ -31,8 +31,8 @@
     })
     console.groupEnd();
 
-    console.groupCollapsed();
-    for (let i = 0; i < 250; i++) {
+    console.groupCollapsed("lines");
+    for (let i = 0; i < 2; i++) {
       const coords1 = _SB.getRandomXY();
       const coords2 = _SB.getRandomXY();
 
@@ -41,8 +41,8 @@
         y1: coords1.y,
         x2: coords2.x,
         y2: coords2.y,
-        wv: 100,
-        sw: 0.25
+        wv: 255,
+        sw: 5
       });
     }
 
@@ -50,6 +50,17 @@
       line.draw();
     })
     console.groupEnd();
+
+    _SB.lines[0].update({
+      x1: 0,
+      y1: 0
+    });
+
+    _SB.lines[1].update({
+      x2: 750,
+      y2: 750
+    });
+
 
     // Very dumb animation to test my update function.
 
