@@ -37,5 +37,8 @@
     "build": "fractal build",
     "preprod": "mkdir -p ./public/js/components/ && rm -f ./public/css/global.css.map",
     "prod": "run-s sass:prod jsBasic:all build"
+  },
+  "devDependencies": {
+    "fs-readdir-recursive": "^1.1.0"
   }
 }
