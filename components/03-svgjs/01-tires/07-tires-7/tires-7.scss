@@ -1,0 +1,14 @@
+#tires-7 {
+  padding: 1rem;
+
+  .container {
+    width: 100%;
+    height: calc(100vh - 2rem);
+  }
+
+  svg {
+    border: 1px solid teal;
+    width: 100%;
+    height: auto;
+  }
+}
