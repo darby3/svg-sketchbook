@@ -28,4 +28,13 @@ const createColor = function () {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
-export {coinFlip, getRandom, getRandomInt, createColor, getRandomIntInclusive}
+// Shuffle array: https://stackoverflow.com/a/6274381/2900883
+const shuffleArray = function (a) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+export {coinFlip, getRandom, getRandomInt, createColor, getRandomIntInclusive, shuffleArray}
