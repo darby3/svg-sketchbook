@@ -13,25 +13,39 @@ const draw = SVG().addTo('#tires-9 .container')
   .size(width, height)
   .viewbox(0, 0, width, height);
 
+// const barColors = [
+//   "#7595BF",
+//   "#8FB6D9",
+//   "#BAD9D9",
+//   "#A4BFA8",
+// ]
+
+const barColors = [
+  "#511259",
+  "#553159",
+  "#696273",
+  "#F2EDA2",
+  "#8C846C",
+]
+
+const stop1 = barColors[getRandomIntInclusive(0, barColors.length - 1)];
+const stop2 = barColors[getRandomIntInclusive(0, barColors.length - 1)];
+
 const gradient = draw.gradient('linear', function (add) {
-  add.stop(0, '#808080')
-  add.stop(1, '#404040')
+  add.stop(0, stop1);
+  add.stop(1, stop2);
 }).from(0, 0).to(0, 1);
 
 const bg = draw.rect(width, height).fill(gradient);
 
-const barColors = [
-  "#7595BF",
-  "#8FB6D9",
-  "#BAD9D9",
-  "#A4BFA8",
-]
 
 const numRows = getRandomIntInclusive(5, 15);
 const rowHeight = height / numRows;
 let y = 0 - rowHeight * 0.5;
 const alpha = 1;
 let count = getRandomInt(20, 50);
+
+const strokeColor = barColors[getRandomIntInclusive(0, barColors.length - 1)];
 
 for (let rows = 0; rows <= numRows; rows++) {
   const rects = [];
@@ -53,7 +67,7 @@ for (let rows = 0; rows <= numRows; rows++) {
       })
       .opacity(alpha)
       .stroke({
-        color: '#f2f2f2',
+        color: strokeColor,
         width: 0.25
       });
 
