@@ -5,17 +5,17 @@ import {
 } from "./utils-v1.js";
 
 const colors = [
-  "#511259",
-  "#553159",
-  "#696273",
-  "#F2EDA2",
-  "#8C846C",
+  "#CC1177",
+  "#FF33AA",
+  "#CC3399",
+  "#FF66CC",
+  "#990044",
 ]
 
 const shapes = [
-  "triangle",
-  "square",
-  "pentagon",
+  "blob1",
+  "blob2",
+  "blob3",
 ]
 
 function getColor(colors) {
@@ -26,12 +26,14 @@ function getRandomArrayElement(arr) {
   return arr[getRandomIntInclusive(0, arr.length - 1)];
 }
 
-console.log("shapes-3b active");
+console.log("shapes-3b-2 active");
 
-const draw = SVG('#shapes-3b-svg');
+const draw = SVG('#shapes-3b-2-svg');
 
 const width = draw.width();
 const height = draw.height();
+
+const bg = draw.rect(width, height).fill("#290318");
 
 const sqSize = 30;
 
@@ -46,10 +48,10 @@ console.log({startX, startY});
 for (let r = 0; r < rows; r++) {
   for (let c = 0; c < cols; c++) {
     let currentShape = draw.use(getRandomArrayElement(shapes));
-    let objscale = sqSize / currentShape.bbox().width * 0.95;
+    let objscale = sqSize / currentShape.bbox().width;
 
     currentShape.transform({
-      position: [ startX + c * sqSize + sqSize / 2, startY + r * sqSize + sqSize / 2 ],
+      position: [startX + c * sqSize + sqSize / 2, startY + r * sqSize + sqSize / 2],
       scale: objscale,
       rotate: getRandomIntInclusive(0, 3) * 90
     });

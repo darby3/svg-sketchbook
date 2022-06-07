@@ -53,16 +53,19 @@ let startY = (height - (rows * sqSize)) / 2;
 
 for (let r = 0; r < rows; r++) {
   for (let c = 0; c < cols; c++) {
+    // Create a group
+
     const group = draw.group();
 
-    let curSquare = group.rect(sqSize, sqSize);
+    // Create a square inside the group, color it white
 
-    // curSquare.cx(startX + c * sqSize + sqSize / 2);
-    // curSquare.cy(startY + r * sqSize + sqSize / 2);
+    let curSquare = group.rect(sqSize, sqSize);
 
     curSquare.attr({
       fill: "#fff",
     });
+
+    // Create a shape inside the group, color it black
 
     let currentShape = group.use(getRandomArrayElement(shapes)).attr({
       fill: '#000',
@@ -75,28 +78,33 @@ for (let r = 0; r < rows; r++) {
       scale: objscale
     });
 
-    // curSquare.maskWith(currentShape);
+    // Move the black and white group into position, then rotate it for fun
 
     group.transform({
       position: [startX + c * sqSize + sqSize / 2, startY + r * sqSize + sqSize / 2],
-      // rotate: getRandomIntInclusive(0, 3) * 90
+      rotate: getRandomIntInclusive(0, 3) * 90,
     });
 
+    // Create a new square and give it a random color
 
     let maskedSquare = draw.rect(sqSize, sqSize);
-
     let colorForThis = getColor(colors);
     maskedSquare.fill(colorForThis);
+
+    // Mask the square with the grouo we created above
+
     maskedSquare.maskWith(group);
+
+    // Move the masked square into position
 
     maskedSquare.cx(startX + c * sqSize + sqSize / 2);
     maskedSquare.cy(startY + r * sqSize + sqSize / 2);
+
+    // Stroke it to make it prettier
 
     maskedSquare.stroke({
       color: colorForThis,
       width: 1,
     });
-
-
   }
 }
