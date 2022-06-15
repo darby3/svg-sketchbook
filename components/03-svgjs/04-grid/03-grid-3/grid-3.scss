@@ -1,0 +1,17 @@
+#grid-3 {
+  padding: 1rem;
+
+  .container {
+    width: 100%;
+    height: calc(100vh - 8rem);
+
+    display: flex;
+    align-items: center;
+  }
+
+  svg {
+    border: 1px solid teal;
+    width: 100%;
+    height: auto;
+  }
+}
